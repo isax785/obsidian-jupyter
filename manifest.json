@@ -1,8 +1,8 @@
 {
     "id": "jupyter-explorer",
     "name": "Jupyter Explorer",
-    "version": "1.0.0",
-    "minAppVersion": "1.0.0",
+    "version": "1.0.1",
+    "minAppVersion": "1.0.1",
     "description": "Explore Jupyter notebooks (.ipynb) in Obsidian with full cell rendering (read-only).",
     "author": "isax785",
     "authorUrl": "https://github.com/isax785/obsidian-jupyter",
