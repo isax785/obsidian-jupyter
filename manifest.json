@@ -6,5 +6,5 @@
     "description": "Explore Jupyter notebooks (.ipynb) in Obsidian with full cell rendering (read-only).",
     "author": "isax785",
     "authorUrl": "https://github.com/isax785/obsidian-jupyter",
-    "isDesktopOnly": false
+    "isDesktopOnly": true
 }
