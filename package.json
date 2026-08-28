@@ -1,7 +1,7 @@
 {
-    "name": "obsidian-jupyter-notebook-viewer",
+    "name": "obsidian-jupyter-explorer",
     "version": "1.0.0",
-    "description": "Jupyter Notebook Viewer plugin for Obsidian",
+    "description": "Jupyter Explorer plugin for Obsidian",
     "main": "main.js",
     "scripts": {
         "dev": "node esbuild.config.mjs",

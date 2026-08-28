@@ -104,7 +104,7 @@ function resolveAttachments(
 
 // ── View ─────────────────────────────────────────────────────────────────────
 
-class JupyterView extends FileView {
+class JupyterExplorerView extends FileView {
     private component: Component;
 
     constructor(leaf: WorkspaceLeaf) {
@@ -117,7 +117,7 @@ class JupyterView extends FileView {
     }
 
     getDisplayText(): string {
-        return this.file?.name ?? "Jupyter Notebook";
+        return this.file?.name ?? "Jupyter Explorer";
     }
 
     getIcon(): string {
@@ -399,20 +399,20 @@ class JupyterView extends FileView {
 
 // ── Plugin ───────────────────────────────────────────────────────────────────
 
-export default class JupyterPlugin extends Plugin {
+export default class JupyterExplorerPlugin extends Plugin {
     async onload(): Promise<void> {
         this.registerView(
             JUPYTER_VIEW_TYPE,
-            (leaf: WorkspaceLeaf) => new JupyterView(leaf)
+            (leaf: WorkspaceLeaf) => new JupyterExplorerView(leaf)
         );
 
         this.registerExtensions([JUPYTER_EXTENSION], JUPYTER_VIEW_TYPE);
 
         this.addCommand({
             id: "export-jupyter-to-pdf",
-            name: "Export Jupyter Notebook to PDF",
+            name: "Export Jupyter Explorer notebook to PDF",
             checkCallback: (checking: boolean) => {
-                const view = this.app.workspace.getActiveViewOfType(JupyterView);
+                const view = this.app.workspace.getActiveViewOfType(JupyterExplorerView);
                 if (view) {
                     if (!checking) {
                         this.exportToPdf(view);
@@ -424,14 +424,14 @@ export default class JupyterPlugin extends Plugin {
         });
     }
 
-    private exportToPdf(view: JupyterView): void {
+    private exportToPdf(view: JupyterExplorerView): void {
         const app = this.app as any;
 
         // Get the notebook's rendered HTML content
         const contentEl = view.contentEl as HTMLElement;
         const notebookEl = contentEl.querySelector(".jupyter-notebook") as HTMLElement;
         if (!notebookEl) {
-            console.error("Jupyter PDF export: notebook element not found");
+            console.error("Jupyter Explorer PDF export: notebook element not found");
             return;
         }
 
@@ -470,7 +470,7 @@ export default class JupyterPlugin extends Plugin {
                        (window as any).require?.("electron")?.remote;
 
         if (!remote) {
-            console.error("Jupyter PDF export: @electron/remote not available");
+            console.error("Jupyter Explorer PDF export: @electron/remote not available");
             return;
         }
 
@@ -514,7 +514,7 @@ export default class JupyterPlugin extends Plugin {
                         if (!canceled && filePath) {
                             fs.writeFile(filePath, data, (err: Error | null) => {
                                 if (err) {
-                                    console.error("Jupyter PDF write error:", err);
+                                    console.error("Jupyter Explorer PDF write error:", err);
                                 } else {
                                     shell.showItemInFolder(filePath);
                                 }
@@ -524,7 +524,7 @@ export default class JupyterPlugin extends Plugin {
                 }).catch((err: Error) => {
                     win.close();
                     try { fs.unlinkSync(tmpFile); } catch {}
-                    console.error("Jupyter PDF export failed:", err);
+                      console.error("Jupyter Explorer PDF export failed:", err);
                 });
             }, 500);
         });

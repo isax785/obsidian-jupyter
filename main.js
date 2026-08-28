@@ -19,7 +19,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // main.ts
 var main_exports = {};
 __export(main_exports, {
-  default: () => JupyterPlugin
+  default: () => JupyterExplorerPlugin
 });
 module.exports = __toCommonJS(main_exports);
 var import_obsidian = require("obsidian");
@@ -50,7 +50,7 @@ function resolveAttachments(source, attachments) {
     }
   );
 }
-var JupyterView = class extends import_obsidian.FileView {
+var JupyterExplorerView = class extends import_obsidian.FileView {
   constructor(leaf) {
     super(leaf);
     this.component = new import_obsidian.Component();
@@ -60,7 +60,7 @@ var JupyterView = class extends import_obsidian.FileView {
   }
   getDisplayText() {
     var _a, _b;
-    return (_b = (_a = this.file) == null ? void 0 : _a.name) != null ? _b : "Jupyter Notebook";
+    return (_b = (_a = this.file) == null ? void 0 : _a.name) != null ? _b : "Jupyter Explorer";
   }
   getIcon() {
     return "file-code";
@@ -265,18 +265,18 @@ var JupyterView = class extends import_obsidian.FileView {
     }
   }
 };
-var JupyterPlugin = class extends import_obsidian.Plugin {
+var JupyterExplorerPlugin = class extends import_obsidian.Plugin {
   async onload() {
     this.registerView(
       JUPYTER_VIEW_TYPE,
-      (leaf) => new JupyterView(leaf)
+      (leaf) => new JupyterExplorerView(leaf)
     );
     this.registerExtensions([JUPYTER_EXTENSION], JUPYTER_VIEW_TYPE);
     this.addCommand({
       id: "export-jupyter-to-pdf",
-      name: "Export Jupyter Notebook to PDF",
+      name: "Export Jupyter Explorer notebook to PDF",
       checkCallback: (checking) => {
-        const view = this.app.workspace.getActiveViewOfType(JupyterView);
+        const view = this.app.workspace.getActiveViewOfType(JupyterExplorerView);
         if (view) {
           if (!checking) {
             this.exportToPdf(view);
@@ -293,7 +293,7 @@ var JupyterPlugin = class extends import_obsidian.Plugin {
     const contentEl = view.contentEl;
     const notebookEl = contentEl.querySelector(".jupyter-notebook");
     if (!notebookEl) {
-      console.error("Jupyter PDF export: notebook element not found");
+      console.error("Jupyter Explorer PDF export: notebook element not found");
       return;
     }
     const styles = Array.from(document.styleSheets).filter((sheet) => {
@@ -326,7 +326,7 @@ var JupyterPlugin = class extends import_obsidian.Plugin {
 </html>`;
     const remote = (_d = (_a = window.require) == null ? void 0 : _a.call(window, "@electron/remote")) != null ? _d : (_c = (_b = window.require) == null ? void 0 : _b.call(window, "electron")) == null ? void 0 : _c.remote;
     if (!remote) {
-      console.error("Jupyter PDF export: @electron/remote not available");
+      console.error("Jupyter Explorer PDF export: @electron/remote not available");
       return;
     }
     const { BrowserWindow, dialog, shell } = remote;
@@ -362,7 +362,7 @@ var JupyterPlugin = class extends import_obsidian.Plugin {
             if (!canceled && filePath) {
               fs.writeFile(filePath, data, (err) => {
                 if (err) {
-                  console.error("Jupyter PDF write error:", err);
+                  console.error("Jupyter Explorer PDF write error:", err);
                 } else {
                   shell.showItemInFolder(filePath);
                 }
@@ -375,7 +375,7 @@ var JupyterPlugin = class extends import_obsidian.Plugin {
             fs.unlinkSync(tmpFile);
           } catch (e) {
           }
-          console.error("Jupyter PDF export failed:", err);
+          console.error("Jupyter Explorer PDF export failed:", err);
         });
       }, 500);
     });

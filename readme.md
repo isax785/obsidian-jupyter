@@ -1,6 +1,6 @@
-# Obsidian Jupyter
+# Jupyter Explorer for Obsidian
 
-![](./src/jupyter_viewer_image.png)
+![](./src/jupyter_explorer_image.png)
 
 View Jupyter notebooks (`.ipynb`) directly in Obsidian. The plugin turns saved notebook cells and their captured outputs into a readable, native-feeling Obsidian view without requiring a Jupyter installation or a running kernel.
 
@@ -25,7 +25,7 @@ View Jupyter notebooks (`.ipynb`) directly in Obsidian. The plugin turns saved n
 
 1. Open **Settings** in Obsidian.
 2. Go to **Community plugins** and turn off Restricted mode if prompted.
-3. Select **Browse**, search for **Jupyter Notebook Viewer**, then choose **Install**.
+3. Select **Browse**, search for **Jupyter Explorer**, then choose **Install**.
 4. Enable the plugin.
 
 ### Manual installation
@@ -33,13 +33,13 @@ View Jupyter notebooks (`.ipynb`) directly in Obsidian. The plugin turns saved n
 1. Download the latest release archive.
 2. Create the folder `.obsidian/plugins/jupyter-viewer/` in your vault.
 3. Copy `main.js`, `manifest.json`, and `styles.css` into that folder.
-4. In Obsidian, enable **Jupyter Notebook Viewer** under **Settings > Community plugins**.
+4. In Obsidian, enable **Jupyter Explorer** under **Settings > Community plugins**.
 
 ## Usage
 
-Place an `.ipynb` file anywhere in your vault and open it from the file explorer. Obsidian will open it in the Jupyter Notebook Viewer.
+Place an `.ipynb` file anywhere in your vault and open it from the file explorer. Obsidian will open it in Jupyter Explorer.
 
-To export the open notebook, open the Command Palette and run **Export Jupyter Notebook to PDF**. You will be asked where to save the PDF. PDF export is available on desktop Obsidian only.
+To export the open notebook, open the Command Palette and run **Export Jupyter Explorer notebook to PDF**. You will be asked where to save the PDF. PDF export is available on desktop Obsidian only.
 
 ## Supported Content
 
@@ -64,7 +64,7 @@ To export the open notebook, open the Command Palette and run **Export Jupyter N
 
 - **The notebook does not open:** Confirm the file extension is `.ipynb` and that the file contains valid notebook JSON.
 - **Output is missing:** The notebook was likely saved without outputs. Execute and save it in Jupyter, then reopen it in Obsidian.
-- **PDF export is unavailable:** Make sure the notebook is open in Jupyter Notebook Viewer and use the desktop app.
+- **PDF export is unavailable:** Make sure the notebook is open in Jupyter Explorer and use the desktop app.
 - **Changes are not reflected during manual development:** Reload Obsidian or disable and re-enable the plugin after copying updated build files.
 
 ## Development
