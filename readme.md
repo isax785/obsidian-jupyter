@@ -1,4 +1,4 @@
-# Jupyter Explorer for Obsidian
+# Jupyter Explorer
 
 ![](./src/jupyter_explorer_image.png)
 
