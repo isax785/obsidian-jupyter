@@ -1,0 +1,340 @@
+/* ── Container ──────────────────────────────────────────────────────────────── */
+
+.jupyter-notebook-view {
+    overflow-y: auto;
+    padding: 0 8px;
+}
+
+.jupyter-notebook {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px 0 40px;
+    font-size: var(--font-text-size);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+
+.jupyter-nb-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.jupyter-kernel-badge {
+    font-size: 0.78em;
+    background: var(--tag-background);
+    color: var(--tag-color);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-family: var(--font-monospace);
+}
+
+/* ── Cells ───────────────────────────────────────────────────────────────────── */
+
+.jupyter-cell {
+    margin-bottom: 12px;
+    border-radius: 6px;
+}
+
+/* Markdown cells — no chrome, just content */
+.jupyter-cell-markdown {
+    padding: 4px 0;
+}
+
+.jupyter-cell-markdown .jupyter-cell-content {
+    padding: 6px 12px;
+}
+
+/* Code cells */
+.jupyter-cell-code {
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.jupyter-code-row {
+    display: flex;
+    align-items: stretch;
+    background: var(--code-background);
+}
+
+.jupyter-gutter {
+    flex-shrink: 0;
+    width: 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 10px 8px 0 4px;
+    background: var(--background-secondary);
+    border-right: 1px solid var(--background-modifier-border);
+}
+
+.jupyter-exec-count {
+    font-family: var(--font-monospace);
+    font-size: 0.75em;
+    color: var(--text-faint);
+    white-space: nowrap;
+}
+
+.jupyter-code-right {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Remove margin/padding injected by Obsidian's markdown renderer inside code blocks */
+.jupyter-cell-source .markdown-rendered pre,
+.jupyter-cell-source pre {
+    margin: 0;
+    border-radius: 0;
+    border: none;
+}
+
+/* Line numbers */
+pre.jupyter-has-line-nums {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.jupyter-line-nums {
+    display: block;
+    flex-shrink: 0;
+    text-align: right;
+    white-space: pre;
+    padding: var(--code-padding) 10px var(--code-padding) 8px;
+    border-right: 1px solid var(--background-modifier-border);
+    color: var(--text-faint);
+    font-family: var(--font-monospace);
+    font-size: inherit;
+    line-height: inherit;
+    user-select: none;
+    min-width: 2em;
+}
+
+pre.jupyter-has-line-nums > code {
+    flex: 1;
+    min-width: 0;
+    padding-left: 12px;
+}
+
+/* ── Outputs ─────────────────────────────────────────────────────────────────── */
+
+.jupyter-outputs {
+    border-top: 1px solid var(--background-modifier-border);
+    background: var(--background-primary);
+}
+
+.jupyter-output {
+    padding: 6px 0 6px 68px; /* align with code content */
+    position: relative;
+}
+
+.jupyter-output-exec-count {
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    font-family: var(--font-monospace);
+    font-size: 0.75em;
+    color: var(--text-faint);
+}
+
+/* Stream output */
+.jupyter-stdout,
+.jupyter-stderr {
+    margin: 0;
+    padding: 4px 12px 4px 0;
+    background: transparent;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-family: var(--font-monospace);
+    font-size: 0.85em;
+    border: none;
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.jupyter-stderr {
+    color: var(--color-red);
+    background: rgba(var(--color-red-rgb, 200, 50, 50), 0.06);
+}
+
+/* Traceback / error */
+.jupyter-traceback {
+    margin: 0;
+    padding: 4px 12px 4px 0;
+    background: rgba(var(--color-red-rgb, 200, 50, 50), 0.06);
+    color: var(--color-red);
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-family: var(--font-monospace);
+    font-size: 0.82em;
+    border: none;
+    border-radius: 0;
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+/* Image output */
+.jupyter-output-image {
+    max-width: 100%;
+    display: block;
+    margin: 4px 0;
+}
+
+/* SVG output */
+.jupyter-output-svg {
+    max-width: 100%;
+    overflow: auto;
+}
+
+.jupyter-output-svg svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* HTML output (e.g. DataFrames) */
+.jupyter-output-html {
+    overflow-x: auto;
+    font-size: 0.85em;
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.jupyter-output-html table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.jupyter-output-html th,
+.jupyter-output-html td {
+    border: 1px solid var(--background-modifier-border);
+    padding: 4px 8px;
+    text-align: left;
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.jupyter-output-html th {
+    background: var(--background-secondary);
+    font-weight: 600;
+}
+
+/* Output area — ensure all child text is selectable */
+.jupyter-outputs,
+.jupyter-output,
+.jupyter-output * {
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+/* ── Raw cells ───────────────────────────────────────────────────────────────── */
+
+.jupyter-raw-cell {
+    background: var(--background-secondary);
+    border-left: 3px solid var(--background-modifier-border);
+    margin: 0;
+    padding: 8px 12px;
+    white-space: pre-wrap;
+    font-family: var(--font-monospace);
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+/* ── Parse error ─────────────────────────────────────────────────────────────── */
+
+.jupyter-parse-error {
+    color: var(--color-red);
+    padding: 16px;
+}
+
+/* ── Line numbers ─────────────────────────────────────────────────────────── */
+
+pre.jupyter-ln-injected {
+  display: flex !important;
+  padding: 0 !important;
+  overflow-x: auto;
+  align-items: stretch;
+}
+
+/* Line-number column — stretches to full code height automatically
+   because it is a flex child next to the <code> element */
+.jupyter-line-numbers {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  -webkit-user-select: none;
+  text-align: right;
+  padding: 1em 0.75em 1em 1em;
+  min-width: 2.5em;
+  background: rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(128, 128, 128, 0.25);
+  color: var(--text-muted);
+  font-size: 0.85em;
+  line-height: inherit;
+  flex-shrink: 0;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+
+.jupyter-ln {
+  display: block;
+  line-height: inherit;
+  flex: 1;
+}
+
+/* Code content area fills remaining width */
+pre.jupyter-ln-injected code {
+  flex: 1;
+  padding: 1em;
+  overflow-x: visible;
+  line-height: inherit;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* ── Text selection ───────────────────────────────────────────────────────── */
+
+/* Markdown cells */
+.jupyter-cell-markdown,
+.jupyter-cell-markdown *,
+.jupyter-cell-markdown .markdown-rendered,
+.jupyter-cell-markdown .markdown-rendered * {
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+/* Output cells — all content selectable */
+.jupyter-outputs,
+.jupyter-output,
+.jupyter-output *,
+.jupyter-stdout,
+.jupyter-stdout *,
+.jupyter-stderr,
+.jupyter-stderr *,
+.jupyter-traceback,
+.jupyter-traceback *,
+.jupyter-output-text,
+.jupyter-output-text *,
+.jupyter-output-html,
+.jupyter-output-html *,
+.jupyter-output-markdown,
+.jupyter-output-markdown * {
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+/* Code area (excluding line numbers) */
+pre.jupyter-ln-injected code {
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+/* Line numbers stay non-selectable */
+.jupyter-line-numbers {
+    user-select: none;
+    -webkit-user-select: none;
+}

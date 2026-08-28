@@ -1,0 +1,10 @@
+{
+    "id": "obsidian-jupyter",
+    "name": "Obsidian Jupyter",
+    "version": "1.0.0",
+    "minAppVersion": "1.0.0",
+    "description": "View Jupyter notebooks (.ipynb) in Obsidian with full cell rendering (read-only).",
+    "author": "isax785",
+    "authorUrl": "https://github.com/isax785/obsidian-jupyter",
+    "isDesktopOnly": false
+}
