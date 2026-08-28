@@ -1,6 +1,6 @@
 # Obsidian Jupyter
 
-![](./src/obsidian_jupyter_image.png)
+![](./src/jupyter_viewer_image.png)
 
 View Jupyter notebooks (`.ipynb`) directly in Obsidian. The plugin turns saved notebook cells and their captured outputs into a readable, native-feeling Obsidian view without requiring a Jupyter installation or a running kernel.
 
@@ -31,7 +31,7 @@ View Jupyter notebooks (`.ipynb`) directly in Obsidian. The plugin turns saved n
 ### Manual installation
 
 1. Download the latest release archive.
-2. Create the folder `.obsidian/plugins/obsidian-jupyter/` in your vault.
+2. Create the folder `.obsidian/plugins/jupyter-viewer/` in your vault.
 3. Copy `main.js`, `manifest.json`, and `styles.css` into that folder.
 4. In Obsidian, enable **Jupyter Notebook Viewer** under **Settings > Community plugins**.
 

@@ -1,6 +1,6 @@
 {
-    "id": "o-jupyter",
-    "name": "Obsidian Jupyter",
+    "id": "jupyter-viewer",
+    "name": "Jupyter Viewer",
     "version": "1.0.0",
     "minAppVersion": "1.0.0",
     "description": "View Jupyter notebooks (.ipynb) in Obsidian with full cell rendering (read-only).",
